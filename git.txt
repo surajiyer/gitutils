@@ -2,3 +2,29 @@
 git rm -r --cached <dir_name>
 git commit -m 'Remove the now ignored directory.'
 git push origin master
+
+# To delete a file/directory from all commits
+git filter-branch --tree-filter 'rm -rf <dir-path>' HEAD
+
+# To copy files from one branch to another without merging
+git checkout <branch-to-copy>
+git checkout <branch-from-copy> <file-path>
+(Optional) git commit -m 'Add file <filename> to <branch-name>.'
+
+# .gitignore everything in current folder
+[^.]*
+
+# Delete latest commit. This also deleted the changes.
+git reset --hard HEAD~1
+
+# Delete some commit in the past
+git reset --hard <sha1-commit-id>
+
+# If you already pushed it, you will need to do a force push to get rid of it...
+git push origin HEAD --force
+
+# Check all commits
+git log
+
+# Delete remote branch
+git remote rm origin
