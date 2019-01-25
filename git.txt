@@ -1,0 +1,4 @@
+# Delete a file/directory already commited and pushed
+git rm -r --cached <dir_name>
+git commit -m 'Remove the now ignored directory.'
+git push origin master
