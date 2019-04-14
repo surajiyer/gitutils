@@ -28,3 +28,10 @@ git log
 
 # Delete remote branch
 git remote rm origin
+
+# See remote repository urls
+git remote -v
+
+# Add remote repository urls as origin
+git remote add origin <url>
+git remote set-url origin <url>
