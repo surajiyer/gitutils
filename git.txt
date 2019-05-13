@@ -72,3 +72,6 @@ git diff
 # Discard commit message by changing "pick" to "fixup"
 # Leave "pick" to retain commit message
 git rebase -i HEAD~4
+
+# List all files changed in a given commit
+git diff-tree --no-commit-id --name-only -r <commit hash>
