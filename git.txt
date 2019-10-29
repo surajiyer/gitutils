@@ -75,3 +75,7 @@ git rebase -i HEAD~4
 
 # List all files changed in a given commit
 git diff-tree --no-commit-id --name-only -r <commit hash>
+
+# Updating local feature branch before merging to master branch
+# Bring your feature branch up to date with master. Deploying from Git branches adds flexibility. Bring your branch up to date with master and deploy it to make sure everything works. If everything looks good the branch can be merged. Otherwise, you can deploy your master branch to return production to its stable state.
+https://gist.github.com/santisbon/a1a60db1fb8eecd1beeacd986ae5d3ca
