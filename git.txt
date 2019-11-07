@@ -62,6 +62,12 @@ git merge <a>
 # Pull changes for specific branch
 git pull origin <branch>
 
+# To delete a branch locally
+git branch -D <branch>
+
+# To delete a branch remotely
+git push origin --delete <branch>
+
 # See which files have changed
 git status
 
