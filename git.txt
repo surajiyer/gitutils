@@ -20,6 +20,9 @@ git checkout <branch-from-copy> <file-path>
 # Delete latest commit. This also deletes the changes.
 git reset --hard HEAD~1
 
+# Delete latest commit without delete any of the changes.
+git reset --soft HEAD~1
+
 # Delete some commit in the past
 git reset --hard <sha1-commit-id>
 
