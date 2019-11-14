@@ -71,6 +71,20 @@ git branch -D <branch>
 # To delete a branch remotely
 git push origin --delete <branch>
 
+# To rename a branch locally
+git checkout <old-branch-name>
+git branch -m <new-branch-name>
+OR
+git branch -m <old-branch-name> <new-branch-name>
+
+# To rename a branch remotely
+# First delete the old branch and push the new one to remote
+# Then reset the upstream branch in the new local branch
+git push origin :old-branch-name new-branch-name
+git push origin -u new-branch-name
+
+# To directly reset
+
 # See which files have changed
 git status
 
