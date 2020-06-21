@@ -7,7 +7,7 @@ git commit -m 'Remove the now ignored directory.'
 git push origin master
 
 # To delete a file/directory from all commits
-git filter-branch --tree-filter 'rm -rf <dir-path>' HEAD
+git filter-branch --force --index-filter 'git rm --cached --ignore-unmatch <dir-or-file-path>' --prune-empty --tag-name-filter cat -- --all
 
 # To copy files from one branch to another without merging
 git checkout <branch-to-copy>
