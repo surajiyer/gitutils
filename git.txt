@@ -105,3 +105,6 @@ https://gist.github.com/santisbon/a1a60db1fb8eecd1beeacd986ae5d3ca
 
 # perform garbage collection in your repository and prune old objects
 git gc --aggressive --prune
+
+# How to compare two files not in repo using git
+git diff --no-index file1.txt file2.txt
