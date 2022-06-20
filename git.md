@@ -167,3 +167,7 @@ Go back to the feature branch and point it to the temp branch:
 
 Delete the temporary branch:  
 `git branch -d temp`
+
+Change default text editor for git
+---
+`git config --global core.editor "nano"`
