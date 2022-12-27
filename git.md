@@ -2,6 +2,10 @@ URL(s) to git cheatsheets
 ---
 https://medium.freecodecamp.org/git-cheat-sheet-and-best-practices-c6ce5321f52
 
+Remove a file / directory from the staging area without deleting it locally
+---
+`git rm --cached <dir_name>`
+
 Delete a file/directory already commited and pushed
 ---
 `git rm -r --cached <dir_name>`  
