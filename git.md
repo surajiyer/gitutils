@@ -8,9 +8,11 @@ Remove a file / directory from the staging area without deleting it locally
 
 Delete a file/directory already commited and pushed
 ---
-`git rm -r --cached <dir_name>`  
-`git commit -m 'Remove the now ignored directory.'`  
-`git push origin master`
+```
+git rm -r --cached <dir_name>
+git commit -m 'Remove the now ignored directory.'
+git push origin master
+```
 
 To delete a file/directory from all commits
 ---
@@ -18,9 +20,11 @@ To delete a file/directory from all commits
 
 To copy files from one branch to another without merging
 ---
-`git checkout <branch-to-copy>`  
-`git checkout <branch-from-copy> <file-path>`  
-(Optional) `git commit -m 'Add file <filename> to <branch-name>.'`
+```
+git checkout <branch-to-copy>
+git checkout <branch-from-copy> <file-path>
+git commit -m 'Add file <filename> to <branch-name>.'  # Optional
+```
 
 .gitignore everything in current folder
 ---
@@ -47,8 +51,10 @@ Check all commits: commits will come with message and a hash
 
 Edit some historical commit and force push changes
 ---
-`git checkout <commit hash>`  
-`git push -f origin master`
+```
+git checkout <commit hash>
+git push -f origin master
+```
 
 Delete remote branch
 ---
@@ -60,8 +66,10 @@ See remote repository urls
 
 Add remote repository urls as origin
 ---
-`git remote add origin <url>`  
-`git remote set-url origin <url>`
+```
+git remote add origin <url>
+git remote set-url origin <url>
+```
 
 See list of branches
 ---
@@ -81,8 +89,10 @@ Create new branch and checkout to it in one line
 
 To merge branch A into B
 ---
-`git checkout <b>`  
-`git merge <a>`
+```
+git checkout <b>
+git merge <a>
+```
 
 Pull changes for specific branch
 ---
@@ -98,16 +108,20 @@ To delete a branch remotely
 
 To rename a branch locally
 ---
-`git checkout <old-branch-name>`  
-`git branch -m <new-branch-name>`  
-*OR*  
-`git branch -m <old-branch-name> <new-branch-name>`
+```
+git checkout <old-branch-name>
+git branch -m <new-branch-name>
+# *OR*
+git branch -m <old-branch-name> <new-branch-name>
+```
 
 To rename a branch remotely
 ---
 First delete the old branch and push the new one to remote. Then reset the upstream branch in the new local branch.  
-`git push origin <old-branch-name> <new-branch-name>`  
-`git push origin -u <new-branch-name>`
+```
+git push origin <old-branch-name> <new-branch-name>
+git push origin -u <new-branch-name>
+```
 
 See which files have changed
 ---
@@ -142,9 +156,11 @@ How to compare two files not in repo using git
 Pull all branches in one go
 ---
 https://stackoverflow.com/questions/10312521/how-to-fetch-all-git-branches  
-`git branch -r | grep -v '\->' | while read remote; do git branch --track "${remote#origin/}" "$remote"; done`  
-`git fetch --all`  
-`git pull --all`
+```
+git branch -r | grep -v '\->' | while read remote; do git branch --track "${remote#origin/}" "$remote"; done
+git fetch --all
+git pull --all
+```
 
 Undo git commit --amend
 ---
@@ -166,8 +182,10 @@ Commit the changes (the commit message contains all squashed commit messages):
 `git commit`
 
 Go back to the feature branch and point it to the temp branch:  
-`git checkout feature`  
-`git reset --hard temp`
+```
+git checkout feature
+git reset --hard temp
+```
 
 Delete the temporary branch:  
 `git branch -d temp`
@@ -175,3 +193,11 @@ Delete the temporary branch:
 Change default text editor for git
 ---
 `git config --global core.editor "nano"`
+
+Checkout the latest tag
+---
+```
+git fetch --all --tags
+tag=$(git describe --tags `git rev-list --tags --max-count=1`)
+git checkout $tag -b latest
+```
