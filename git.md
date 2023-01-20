@@ -170,7 +170,7 @@ Move the current head so that it's pointing at the old commit. Leave the index i
 Commit the current tree using the commit details of the previous HEAD commit (Note that HEAD@{1} is pointing somewhere different from the previous command. It's now pointing at the erroneously amended commit.).  
 `git commit -C HEAD@{1}`
 
-How to squash all commits in the feature branch
+How to squash all commits in the feature branch (v1)
 ---
 Assuming the feature branch is called feature and the main branch main. Create a temporary branch from main:  
 `git checkout -b temp main`
@@ -189,6 +189,31 @@ git reset --hard temp
 
 Delete the temporary branch:  
 `git branch -d temp`
+
+How to squash all commits in the feature branch (v2: simpler without rebasing or merging)
+---
+Checkout the branch for which you would like to squash all the commits into one commit. Let's say it's called feature_branch.
+```
+git checkout feature_branch
+```
+
+Step 1:
+
+Do a soft reset of your origin/feature_branch with your local main branch (depending on your needs, you can reset with origin/main as well). This will reset all the extra commits in your feature_branch, but without changing any of your file changes locally.
+
+```
+git reset --soft main  # or master
+```
+
+Step 2:
+
+Add all of the changes in your git repo directory, to the new commit that is going to be created. And commit the same with a message.
+
+```
+git add ...
+git commit -m "commit message goes here"
+git push -f  # if previous commits were already pushed else without --force
+```
 
 Change default text editor for git
 ---
